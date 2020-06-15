@@ -50,7 +50,12 @@
 
   ul.form-control {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
+    height: auto;
+    min-height: #{$input-height};
+    padding: 0;
+    margin: 0;
     list-style-type: none;
 
     &.disabled {
@@ -65,7 +70,9 @@
 
     // JS css/cssPatch: pick
     > li.badge {
+      margin-bottom: 0.5em;
       padding-left: 0.75em;
+      font-size: 0.65em;
 
       button.close {
         float: none;

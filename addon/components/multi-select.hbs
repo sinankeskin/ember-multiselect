@@ -2,12 +2,12 @@
   <ul
     id="{{this.elementId}}-list"
     tabindex="0"
-    class="form-control px-0 my-0 {{if this.focused 'focus' ''}}"
+    class="form-control {{if this.focused 'focus' ''}}"
     ...attributes
     {{on 'focus' this.onFocus}}
   >
     {{#each this.selectedItems as |selectedItem|}}
-      <li class="badge badge-secondary ml-1">
+      <li class="badge badge-secondary m-1">
         <span>
           {{get selectedItem this.label}}
         </span>
@@ -22,6 +22,12 @@
             ×
           </span>
         </button>
+      </li>
+    {{else}}
+      <li>
+        <span class="text-muted ml-2">
+          {{@placeholder}}
+        </span>
       </li>
     {{/each}}
   </ul>
