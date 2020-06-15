@@ -1,0 +1,29 @@
+.ember-multiselect {
+  list-style-type: none;
+}
+
+.ember-multiselect.focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.ember-multiselect.is-invalid.focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.ember-multiselect-div select {
+  width: 100%;
+  margin-top: 3px;
+}
+
+.ember-multiselect-div select:focus {
+  color: #495057;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  outline: 0;
+  box-shadow: none;
+}

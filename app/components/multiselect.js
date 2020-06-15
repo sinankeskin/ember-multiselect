@@ -1,0 +1,1 @@
+export { default } from 'ember-multiselect/components/multiselect';
