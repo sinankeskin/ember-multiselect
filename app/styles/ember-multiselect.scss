@@ -1,5 +1,5 @@
-@import './../../node_modules/bootstrap/scss/_functions';
-@import './../../node_modules/bootstrap/scss/_variables'; // update it after copy, reference your custom theme variables
+// @import './node_modules/bootstrap/scss/_functions';
+// @import './node_modules/bootstrap/scss/_variables'; // update it after copy, reference your custom theme variables
 
 // NOTE: strict copy of BS4  @mixin form-control-focus()  from mixins/_forms.scss
 // NOTE: there are changes in form-control-focus in BS5 (depricated?)
@@ -46,7 +46,11 @@
 }
 
 .ember-multi-select {
+  position: relative;
+
   ul.form-control {
+    display: flex;
+    align-items: center;
     list-style-type: none;
 
     &.disabled {
@@ -62,12 +66,11 @@
     // JS css/cssPatch: pick
     > li.badge {
       padding-left: 0.75em;
-      line-height: 1.5em;
 
       button.close {
         float: none;
-        font-size: 1.5em;
-        line-height: 0.9em;
+        font-size: 1em;
+        line-height: 1em;
         // BS close orginally float:right, therefore it impossible to configure no-warp policy
         // with .css("white-space", "nowrap") or  .css("display", "inline-block"); TODO: migrate to flex?
       }
@@ -80,12 +83,17 @@
     @include form-control-focus-bsmultiselect();
   }
 
-  input.form-control {
+  .select-box {
     margin-top: 3px;
+    z-index: 1000;
+  }
+
+  input.form-control {
+    margin-bottom: 3px;
+    border-color: $input-border-color;
   }
 
   select.form-control {
-    margin-top: 3px;
     border-color: $input-border-color;
   }
 

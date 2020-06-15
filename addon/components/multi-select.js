@@ -8,6 +8,9 @@ export default class MultiSelectComponent extends Component {
   elementId = guidFor(this);
 
   @tracked
+  focused = false;
+
+  @tracked
   selectedItems = A(this.args.selected || []);
 
   @computed('args.selector')
@@ -32,16 +35,20 @@ export default class MultiSelectComponent extends Component {
   @action
   onFocus() {
     document.querySelector(`#${this.elementId}-list`).classList.add('focus');
-    document.querySelector(`#${this.elementId}-select`).classList.remove('d-none');
-    document.querySelector(`#${this.elementId}-select`).classList.add('d-block');
+    document.querySelector(`#${this.elementId}-box`).classList.remove('d-none');
+    document.querySelector(`#${this.elementId}-box`).classList.add('d-block');
     document.querySelector(`#${this.elementId}-select`).focus();
+
+    this.focused = true;
   }
 
   @action
   onBlur() {
     document.querySelector(`#${this.elementId}-list`).classList.remove('focus');
-    document.querySelector(`#${this.elementId}-select`).classList.remove('d-block');
-    document.querySelector(`#${this.elementId}-select`).classList.add('d-none');
+    document.querySelector(`#${this.elementId}-box`).classList.remove('d-block');
+    document.querySelector(`#${this.elementId}-box`).classList.add('d-none');
+
+    this.focused = false;
   }
 
   @action
@@ -55,6 +62,8 @@ export default class MultiSelectComponent extends Component {
         this.args.onChange(this.selectedItems);
       }
     }
+
+    this.onFocus();
   }
 
   @action
@@ -66,5 +75,7 @@ export default class MultiSelectComponent extends Component {
         this.args.onChange(this.selectedItems);
       }
     }
+
+    this.onFocus();
   }
 }

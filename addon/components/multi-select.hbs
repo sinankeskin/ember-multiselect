@@ -1,7 +1,13 @@
 <div class="ember-multi-select">
-  <ul id="{{this.elementId}}-list" tabindex="0" class="form-control mb-0" ...attributes {{on 'focus' this.onFocus}}>
+  <ul
+    id="{{this.elementId}}-list"
+    tabindex="0"
+    class="form-control px-0 my-0 {{if this.focused 'focus' ''}}"
+    ...attributes
+    {{on 'focus' this.onFocus}}
+  >
     {{#each this.selectedItems as |selectedItem|}}
-      <li class="badge badge-secondary">
+      <li class="badge badge-secondary ml-1">
         <span>
           {{get selectedItem this.label}}
         </span>
@@ -9,7 +15,7 @@
           aria-label="Remove"
           tabindex="-1"
           type="button"
-          class="close"
+          class="close btn btn-sm btn-dark"
           {{on 'click' (fn this.removeItem selectedItem)}}
         >
           <span aria-hidden="true">
@@ -19,22 +25,24 @@
       </li>
     {{/each}}
   </ul>
-  {{#if @searchable}}
-    <input class="form-control d-none" />
-  {{/if}}
-  <select
-    id="{{this.elementId}}-select"
-    class="form-control shadow-none p-0 d-none"
-    size={{this.size}}
-    multiple="multiple"
-    ...attributes
-    {{on 'change' this.addItem}}
-    {{on 'blur' this.onBlur}}
-  >
-    {{#each @options as |_option|}}
-      <option value={{get _option this.selector}}>
-        {{get _option this.label}}
-      </option>
-    {{/each}}
-  </select>
+  <div id="{{this.elementId}}-box" class="select-box position-absolute border rounded bg-white w-100 p-1 d-none">
+    {{#if @searchable}}
+      <input id="{{this.elementId}}-input" class="form-control shadow-none" ...attributes />
+    {{/if}}
+    <select
+      id="{{this.elementId}}-select"
+      class="form-control shadow-none p-0"
+      multiple="multiple"
+      size={{this.size}}
+      ...attributes
+      {{on 'change' this.addItem}}
+      {{on 'blur' this.onBlur}}
+    >
+      {{#each @options as |_option|}}
+        <option value={{get _option this.selector}} selected={{includes this.selectedItems _option}}>
+          {{get _option this.label}}
+        </option>
+      {{/each}}
+    </select>
+  </div>
 </div>
