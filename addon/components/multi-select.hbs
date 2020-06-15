@@ -1,0 +1,40 @@
+<div class="ember-multi-select">
+  <ul id="{{this.elementId}}-list" tabindex="0" class="form-control mb-0" ...attributes {{on 'focus' this.onFocus}}>
+    {{#each this.selectedItems as |selectedItem|}}
+      <li class="badge badge-secondary">
+        <span>
+          {{get selectedItem this.label}}
+        </span>
+        <button
+          aria-label="Remove"
+          tabindex="-1"
+          type="button"
+          class="close"
+          {{on 'click' (fn this.removeItem selectedItem)}}
+        >
+          <span aria-hidden="true">
+            ×
+          </span>
+        </button>
+      </li>
+    {{/each}}
+  </ul>
+  {{#if @searchable}}
+    <input class="form-control d-none" />
+  {{/if}}
+  <select
+    id="{{this.elementId}}-select"
+    class="form-control shadow-none p-0 d-none"
+    size={{this.size}}
+    multiple="multiple"
+    ...attributes
+    {{on 'change' this.addItem}}
+    {{on 'blur' this.onBlur}}
+  >
+    {{#each @options as |_option|}}
+      <option value={{get _option this.selector}}>
+        {{get _option this.label}}
+      </option>
+    {{/each}}
+  </select>
+</div>

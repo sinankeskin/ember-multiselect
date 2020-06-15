@@ -1,4 +1,3 @@
-@use "sass:map";
 @import './../../node_modules/bootstrap/scss/_functions';
 @import './../../node_modules/bootstrap/scss/_variables'; // update it after copy, reference your custom theme variables
 
@@ -46,7 +45,7 @@
   }
 }
 
-.ember-multiselect {
+.ember-multi-select {
   ul.form-control {
     list-style-type: none;
 

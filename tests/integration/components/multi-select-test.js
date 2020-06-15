@@ -3,22 +3,22 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | multiselect', function(hooks) {
+module('Integration | Component | multi-select', function(hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function(assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<Multiselect />`);
+    await render(hbs`<MultiSelect />`);
 
     assert.equal(this.element.textContent.trim(), '');
 
     // Template block usage:
     await render(hbs`
-      <Multiselect>
+      <MultiSelect>
         template block text
-      </Multiselect>
+      </MultiSelect>
     `);
 
     assert.equal(this.element.textContent.trim(), 'template block text');
