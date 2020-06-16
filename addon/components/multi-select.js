@@ -53,13 +53,33 @@ export default class MultiSelectComponent extends Component {
 
   @action
   addItem(event) {
-    const option = this.args.options.findBy(this.selector, event.target.value);
+    const options = event.target.options;
 
-    if (!this.selectedItems.includes(option)) {
-      this.selectedItems.pushObject(option);
+    if (Array.from(options).filter(({ selected }) => selected).length === 1) {
+      const option = this.args.options.findBy(this.selector, event.target.value);
 
-      if (this.args.onChange !== undefined && typeof this.args.onChange === 'function') {
-        this.args.onChange(this.selectedItems);
+      if (!this.selectedItems.includes(option)) {
+        this.selectedItems.pushObject(option);
+
+        if (this.args.onChange !== undefined && typeof this.args.onChange === 'function') {
+          this.args.onChange(this.selectedItems);
+        }
+      }
+    } else {
+      for (var i = 0, l = options.length; i < l; i++) {
+        const option = this.args.options.findBy(this.selector, options[i].value);
+
+        if (options[i].selected) {
+          if (!this.selectedItems.includes(option)) {
+            this.selectedItems.pushObject(option);
+
+            if (this.args.onChange !== undefined && typeof this.args.onChange === 'function') {
+              this.args.onChange(this.selectedItems);
+            }
+          }
+        } else {
+          this.removeItem(option);
+        }
       }
     }
 
