@@ -23,17 +23,17 @@
     "test:ember-compatibility": "ember try:each"
   },
   "dependencies": {
-    "bootstrap": "^4.5.0",
+    "bootstrap": "^4.5.3",
     "ember-cli-babel": "^7.22.1",
     "ember-cli-htmlbars": "^5.3.1",
     "ember-cli-sass": "^10.0.1",
-    "sass": "^1.26.10"
+    "sass": "^1.27.0"
   },
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
     "@glimmer/component": "^1.0.2",
     "@glimmer/tracking": "^1.0.2",
-    "@zestia/ember-select-box": "^14.0.2",
+    "@zestia/ember-select-box": "^14.0.4",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
     "ember-auto-import": "^1.6.0",
