@@ -1,8 +1,9 @@
+import { cached, tracked } from '@glimmer/tracking';
+
 import { A } from '@ember/array';
-import { guidFor } from '@ember/object/internals';
-import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
 import Component from '@glimmer/component';
+import { action } from '@ember/object';
+import { guidFor } from '@ember/object/internals';
 
 export default class MultiSelectComponent extends Component {
   elementId = guidFor(this);
@@ -13,14 +14,17 @@ export default class MultiSelectComponent extends Component {
   @tracked
   selectedItems = A(this.args.selected || []);
 
+  @cached
   get selector() {
     return this.args.selector || 'id';
   }
 
+  @cached
   get label() {
     return this.args.label || 'name';
   }
 
+  @cached
   get size() {
     if (this.args.size) {
       return this.args.size;
