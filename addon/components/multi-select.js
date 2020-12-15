@@ -1,7 +1,7 @@
 import { A } from '@ember/array';
 import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
-import { action, computed } from '@ember/object';
+import { action } from '@ember/object';
 import Component from '@glimmer/component';
 
 export default class MultiSelectComponent extends Component {
@@ -13,17 +13,14 @@ export default class MultiSelectComponent extends Component {
   @tracked
   selectedItems = A(this.args.selected || []);
 
-  @computed('args.selector')
   get selector() {
     return this.args.selector || 'id';
   }
 
-  @computed('args.label')
   get label() {
     return this.args.label || 'name';
   }
 
-  @computed('args.options.{,length}', 'args.size')
   get size() {
     if (this.args.size) {
       return this.args.size;
