@@ -46,7 +46,9 @@ export default class MultiSelectComponent extends Component {
   @action
   onBlur() {
     document.querySelector(`#${this.elementId}-list`).classList.remove('focus');
-    document.querySelector(`#${this.elementId}-box`).classList.remove('d-block');
+    document
+      .querySelector(`#${this.elementId}-box`)
+      .classList.remove('d-block');
     document.querySelector(`#${this.elementId}-box`).classList.add('d-none');
 
     this.focused = false;
@@ -57,24 +59,36 @@ export default class MultiSelectComponent extends Component {
     const options = event.target.options;
 
     if (Array.from(options).filter(({ selected }) => selected).length === 1) {
-      const option = this.args.options.findBy(this.selector, event.target.value);
+      const option = this.args.options.findBy(
+        this.selector,
+        event.target.value
+      );
 
       if (!this.selectedItems.includes(option)) {
         this.selectedItems.pushObject(option);
 
-        if (this.args.onChange !== undefined && typeof this.args.onChange === 'function') {
+        if (
+          this.args.onChange !== undefined &&
+          typeof this.args.onChange === 'function'
+        ) {
           this.args.onChange(this.selectedItems);
         }
       }
     } else {
       for (var i = 0, l = options.length; i < l; i++) {
-        const option = this.args.options.findBy(this.selector, options[i].value);
+        const option = this.args.options.findBy(
+          this.selector,
+          options[i].value
+        );
 
         if (options[i].selected) {
           if (!this.selectedItems.includes(option)) {
             this.selectedItems.pushObject(option);
 
-            if (this.args.onChange !== undefined && typeof this.args.onChange === 'function') {
+            if (
+              this.args.onChange !== undefined &&
+              typeof this.args.onChange === 'function'
+            ) {
               this.args.onChange(this.selectedItems);
             }
           }
@@ -92,7 +106,10 @@ export default class MultiSelectComponent extends Component {
     if (this.selectedItems.includes(selected)) {
       this.selectedItems.removeObject(selected);
 
-      if (this.args.onChange !== undefined && typeof this.args.onChange === 'function') {
+      if (
+        this.args.onChange !== undefined &&
+        typeof this.args.onChange === 'function'
+      ) {
         this.args.onChange(this.selectedItems);
       }
     }
