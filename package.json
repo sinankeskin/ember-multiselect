@@ -29,15 +29,15 @@
     "bootstrap": "^4.6.0",
     "ember-cached-decorator-polyfill": "^0.1.1",
     "ember-cli-babel": "^7.23.1",
-    "ember-cli-htmlbars": "^5.4.0",
+    "ember-cli-htmlbars": "^5.6.0",
     "ember-cli-sass": "^10.0.1",
     "sass": "^1.32.8"
   },
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
     "@ember/test-helpers": "^2.2.3",
-    "@glimmer/component": "^1.0.3",
-    "@glimmer/tracking": "^1.0.3",
+    "@glimmer/component": "^1.0.4",
+    "@glimmer/tracking": "^1.0.4",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
     "ember-auto-import": "^1.10.1",
