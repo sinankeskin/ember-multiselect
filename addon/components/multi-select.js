@@ -1,4 +1,5 @@
-import { cached, tracked } from '@glimmer/tracking';
+import { tracked } from '@glimmer/tracking';
+import { cached } from 'tracked-toolbox';
 
 import { A } from '@ember/array';
 import Component from '@glimmer/component';
