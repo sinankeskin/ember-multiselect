@@ -1,1 +1,1 @@
-export { default, includes } from 'ember-multiselect/helpers/includes';
+export { default } from 'ember-multiselect/helpers/includes';

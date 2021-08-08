@@ -32,7 +32,7 @@
     "ember-cli-babel": "^7.26.6",
     "ember-cli-htmlbars": "^5.7.1",
     "ember-cli-sass": "^10.0.1",
-    "sass": "^1.37.2",
+    "sass": "^1.37.5",
     "tracked-toolbox": "^1.2.3"
   },
   "devDependencies": {
@@ -71,7 +71,7 @@
     "prettier": "^2.3.2",
     "qunit": "^2.16.0",
     "qunit-dom": "^1.6.0",
-    "webpack": "^5.48.0"
+    "webpack": "^5.49.0"
   },
   "engines": {
     "node": "10.* || >= 12"
