@@ -1,10 +1,9 @@
-import { tracked } from '@glimmer/tracking';
-import { cached } from 'tracked-toolbox';
-
 import { A } from '@ember/array';
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import { cached } from '@glimmer/tracking';
 import { guidFor } from '@ember/object/internals';
+import { tracked } from '@glimmer/tracking';
 
 export default class MultiSelectComponent extends Component {
   elementId = guidFor(this);
